@@ -3,10 +3,10 @@ const Geoloaction_API_KEY = "462f2ca150f24384a9f4bac0a58ba181";
 const hrs =document.getElementById("hrs");
 const min =document.getElementById("min");
 const date =document.getElementById("date");
-let value = document.getElementById("search-bar").value;
+
 
 let search = ()=>{
-    
+    let value = document.getElementById("search-bar").value;
     let url = `http://api.weatherapi.com/v1/forecast.json?key=df1f1e0c2e624ec2b9b144536242303&q=${value}&days=5&aqi=no&alerts=no`;
     fetch(url).
     then(res=> res.json()).
@@ -71,8 +71,8 @@ function getUpcomingDates() {
       dates.push(nextDate); // Pushing the date into the array
     }
     return dates;
- }
- function getMonthName(date) {
+}
+function getMonthName(date) {
     var months = [
       "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
@@ -86,15 +86,15 @@ let setLocation =()=>{
     then(data=> {
         getLocation(data);
         search();
+     
     })
 }
+
 let getLocation=(data)=>{
-    value=data.city;
+    document.getElementById("search-bar").value=data.city;
 }
   
-window.addEventListener("load", function() {
-    setLocation();
-});
+
 
 function changeThemeColor() {
     const bacgroundColors = ["linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%)", "radial-gradient(circle at 10% 20%, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%)", "linear-gradient(109.6deg, rgb(245, 95, 152) 11.2%, rgb(254, 148, 136) 100.2%)", "linear-gradient(109.6deg, rgb(102, 203, 149) 11.2%, rgb(39, 210, 175) 98.7%)"];
