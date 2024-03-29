@@ -1,0 +1,118 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --bg-clr: linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%);
+    --card-bg-blue: linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%);
+    --card-bg-purple: linear-gradient(to top, #8344b6 0%, #2d0646 100%);
+}
+body{
+    
+    background:var(--bg-clr);
+}
+.container-2{
+    width: 100%;
+    background: rgba(255, 255, 255,0.25);
+    padding: 2em 0.9em;
+    position: relative;
+    margin-top: 15px;
+    border-radius: 0.6em;
+    border: none;
+    box-shadow: 5px 10px 13px -4px rgba(0,0,0,0.75);
+    text-align: center;
+}
+.container-3{
+    width: 100%;
+    background: rgba(255, 255, 255,0.18);
+    padding: 4em 1.1em;
+    backdrop-filter: blur(10px);
+    border-radius: 0.6em;
+    border: none;
+    box-shadow: 5px 10px 13px -4px rgba(0,0,0,0.75);
+    text-align: center;
+}
+.container-4{
+    width: 100%;
+    background: var(--card-bg-blue);
+    padding: 2em 1.1em 4rem 1.1rem;
+    backdrop-filter: blur(10px);
+    border-radius: 0.6em;
+    border: none;
+    box-shadow: 5px 10px 13px -4px rgba(0,0,0,0.75);
+    text-align: center;
+}
+#search-bar{
+   background-color: transparent;
+   border: 1px solid rgba(255, 255, 255,0.25);
+   border-radius: 50px;
+}
+.input-group{
+    gap: 10px;
+}
+.btn{
+    background-color: rgba(255, 255, 255,0.15);
+    border-radius: 50px;
+    color: black;
+}
+#city-name{
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+#country-name{
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+header{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.time{
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 62px;
+    color: black;
+}
+.weather-forecast-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+}
+.next-days{
+    color: white;
+    font-weight: 400;
+    font-size: 14px;
+}
+.weather-icons{
+    height: 40px;
+}
+.next-days-temp{
+    color: white;
+    font-weight: bold;
+}
+.radio-btns-grp{
+    margin-left: 50px;
+}
+.btn-settings{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 8px;
+    padding: 7px 7px 4px 7px;
+}
+.settings-body{
+    background: var(--bg-clr);
+}
+.settings-items{
+    display: flex;
+}
+@media screen and (min-width: 1000px) {
+    header{
+        height: 100vh;
+    }
+  }
