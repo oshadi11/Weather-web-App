@@ -5,7 +5,7 @@
 :root{
     --bg-clr: linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%);
     --card-bg-blue: linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%);
-    --card-bg-purple: linear-gradient(to top, #8344b6 0%, #2d0646 100%);
+    --card-bg-purple: linear-gradient(181deg, #2d0646 15%,#8344b6 158.5%);
 }
 body{
     
