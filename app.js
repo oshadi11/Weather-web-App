@@ -7,7 +7,8 @@ const date =document.getElementById("date");
 
 let search = ()=>{
     let value = document.getElementById("search-bar").value;
-    let url = `http://api.weatherapi.com/v1/forecast.json?key=df1f1e0c2e624ec2b9b144536242303&q=${value}&days=5&aqi=no&alerts=no`;
+    
+    let url = `https://api.weatherapi.com/v1/forecast.json?key=df1f1e0c2e624ec2b9b144536242303&q=${value}&days=5&aqi=no&alerts=no`;
     fetch(url).
     then(res=> res.json()).
     then(data => {
