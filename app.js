@@ -98,13 +98,14 @@ let getLocation=(data)=>{
 
 
 function changeThemeColor() {
-    const bacgroundColors = ["linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%)", "radial-gradient(circle at 10% 20%, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%)", "linear-gradient(109.6deg, rgb(245, 95, 152) 11.2%, rgb(254, 148, 136) 100.2%)", "linear-gradient(109.6deg, rgb(102, 203, 149) 11.2%, rgb(39, 210, 175) 98.7%)"];
-    const weatherForecastBgColor=["linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%)","linear-gradient(181deg, #2d0646 15%,#8344b6 158.5%)","linear-gradient(to top, #5f72bd 0%, #7a14be 100%)","linear-gradient(to top, #5f72bd 0%, #7a14be 100%)"];
+    const bacgroundColors = ["linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%)", "radial-gradient(circle at 10% 20%, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%)", "linear-gradient(109.6deg, rgb(245, 95, 152) 11.2%, rgb(254, 148, 136) 100.2%)", "linear-gradient(109.6deg, rgb(47, 204, 102) 11.2%, rgb(98, 197, 89) 91.7%)"];
+    const weatherForecastBgColor=["linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%)","linear-gradient(181deg, #2d0646 15%,#8344b6 158.5%)","linear-gradient(to top, #5f72bd 0%, #7a14be 100%)","linear-gradient(181deg, #06461c 15%,#63c85d 158.5%)"];
     var radioButtons = document.getElementsByName('theme');
     for (let index = 0; index < radioButtons.length; index++) {
         if(radioButtons[index].checked){
             document.body.style.background =bacgroundColors[index];
             document.querySelector(".container-4").style.background = weatherForecastBgColor[index];
+            document.querySelector(".settings-body").style.background = bacgroundColors[index];
         }
         
     }
