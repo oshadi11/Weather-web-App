@@ -3,7 +3,7 @@ const Geoloaction_API_KEY = "462f2ca150f24384a9f4bac0a58ba181";
 const hrs =document.getElementById("hrs");
 const min =document.getElementById("min");
 const date =document.getElementById("date");
-
+let Data;
 
 let search = ()=>{
     let value = document.getElementById("search-bar").value;
@@ -12,6 +12,7 @@ let search = ()=>{
     fetch(url).
     then(res=> res.json()).
     then(data => {
+        Data = data;
         getWeather(data);
         getTime();
         setForecast(data);
@@ -45,6 +46,7 @@ let getTime = ()=>{
 }
 let setForecast = (data)=>{
  let upcomingDays = getUpcomingDates();
+    document.getElementById("date").innerHTML = getMonthName(upcomingDays[0])+" "+upcomingDays[0].getDate()+" "+upcomingDays[0].getFullYear(); 
     document.getElementById("day1").innerHTML = getMonthName(upcomingDays[0])+" "+upcomingDays[0].getDate(); 
     document.getElementById("day2").innerHTML = getMonthName(upcomingDays[1])+" "+upcomingDays[1].getDate(); 
     document.getElementById("day3").innerHTML = getMonthName(upcomingDays[2])+" "+upcomingDays[2].getDate(); 
@@ -66,10 +68,10 @@ function changeColor() {
 
 function getUpcomingDates() {
     var dates = [];
-    var today = new Date(); // Get today's date
+    var today = new Date(); 
     for (var i = 0; i < 7; i++) {
-      var nextDate = new Date(today.getTime() + i * 24 * 60 * 60 * 1000); // Incrementing date by one day
-      dates.push(nextDate); // Pushing the date into the array
+      var nextDate = new Date(today.getTime() + i * 24 * 60 * 60 * 1000); 
+      dates.push(nextDate); 
     }
     return dates;
 }
@@ -91,15 +93,16 @@ let setLocation =()=>{
     })
 }
 
+
 let getLocation=(data)=>{
     document.getElementById("search-bar").value=data.city;
 }
-  
+
 
 
 function changeThemeColor() {
-    const bacgroundColors = ["linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%)", "radial-gradient(circle at 10% 20%, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%)", "linear-gradient(109.6deg, rgb(245, 95, 152) 11.2%, rgb(254, 148, 136) 100.2%)", "linear-gradient(109.6deg, rgb(47, 204, 102) 11.2%, rgb(98, 197, 89) 91.7%)"];
-    const weatherForecastBgColor=["linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%)","linear-gradient(181deg, #2d0646 15%,#8344b6 158.5%)","linear-gradient(to top, #5f72bd 0%, #7a14be 100%)","linear-gradient(181deg, #06461c 15%,#63c85d 158.5%)"];
+    const bacgroundColors = ["linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%)", "radial-gradient(circle at 10% 20%, rgb(236, 158, 248) 0%, rgb(131, 83, 241) 90.1%)", "linear-gradient(109.6deg, rgb(255, 207, 84) 11.2%, rgb(255, 158, 27) 91.1%)", "linear-gradient(109.6deg, rgb(47, 204, 102) 11.2%, rgb(98, 197, 89) 91.7%)"];
+    const weatherForecastBgColor=["linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%)","linear-gradient(181deg, #2d0646 15%,#8344b6 158.5%)","linear-gradient(181deg, #f87000f7 15%, #f9d423 158.5%)","linear-gradient(181deg, #06461c 15%,#63c85d 158.5%)"];
     var radioButtons = document.getElementsByName('theme');
     for (let index = 0; index < radioButtons.length; index++) {
         if(radioButtons[index].checked){
@@ -110,4 +113,27 @@ function changeThemeColor() {
         
     }
     
+}
+
+function changeTempUnit(){
+    var radioButtons = document.getElementsByName('tempUnit');
+    for (let index = 0; index < radioButtons.length; index++) {
+        if(radioButtons[0].checked){
+            document.getElementById("temp").innerHTML = Data.current.temp_c+`&deg;C`;
+            document.getElementById("next-day1-temp").innerText = "|    "+Data.forecast.forecastday[1].day.avgtemp_c+`°C`;
+            document.getElementById("next-day2-temp").innerHTML = "|    "+Data.forecast.forecastday[2].day.avgtemp_c+`°C`;
+            document.getElementById("next-day3-temp").innerHTML = "|    "+Data.forecast.forecastday[3].day.avgtemp_c+`°C`;
+            document.getElementById("next-day4-temp").innerHTML = "|    "+Data.forecast.forecastday[4].day.avgtemp_c+`°C`;
+            console.log("Celcius");
+        }else if(radioButtons[1].checked){
+            document.getElementById("temp").innerHTML = Data.current.temp_f+`&deg;F`;
+            document.getElementById("next-day1-temp").innerText = "|    "+Data.forecast.forecastday[1].day.avgtemp_f+`°F`;
+            document.getElementById("next-day2-temp").innerHTML = "|    "+Data.forecast.forecastday[2].day.avgtemp_f+`°F`;
+            document.getElementById("next-day3-temp").innerHTML = "|    "+Data.forecast.forecastday[3].day.avgtemp_f+`°F`;
+            document.getElementById("next-day4-temp").innerHTML = "|    "+Data.forecast.forecastday[4].day.avgtemp_f+`°F`;
+            console.log("fahrenheit");
+        }
+        
+    }
+
 }

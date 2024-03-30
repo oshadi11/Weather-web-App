@@ -5,7 +5,6 @@
 :root{
     --bg-clr: linear-gradient(60deg, rgb(81, 122, 246) 35%, rgb(87, 172, 237) 100%);
     --card-bg-blue: linear-gradient(181deg, rgb(2, 0, 97) 15%, rgb(60, 140, 245) 158.5%);
-    --card-bg-purple: linear-gradient(109.6deg, rgb(47, 204, 102) 11.2%, rgb(98, 197, 89) 91.7%);
 }
 body{
     
@@ -98,6 +97,23 @@ header{
 .radio-btns-grp{
     margin-left: 50px;
 }
+
+.radio-btns-grp input[type="radio"] {
+    appearance: none;
+    width: 10px; 
+    height: 10px; 
+    margin-right: 10px; 
+    outline: 2px solid #000;
+    outline-offset: 2px;
+    border-radius: 50%;
+
+}
+.radio-btns-grp input[type="radio"]:checked{
+    background-color: #000 !important; 
+}
+.radio-btns-grp label {
+    cursor: pointer; 
+  }
 .btn-settings{
     position: absolute;
     margin-top: 10px;
@@ -110,6 +126,9 @@ header{
 }
 .settings-items{
     display: flex;
+}
+.radio-btn{
+    height: 15px;
 }
 @media screen and (min-width: 1000px) {
     header{
