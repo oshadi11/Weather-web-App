@@ -14,11 +14,18 @@ let search = ()=>{
     then(data => {
         Data = data;
         getWeather(data);
-        getTime();
         setForecast(data);
         changeColor();
     })
 }
+let searchInput = document.getElementById("search-bar");
+searchInput.addEventListener('keypress', (event)=>{
+    if (event.keyCode === 13) {
+        event.preventDefault(); //stop other default functions when enter pressed
+        search(); 
+    }
+});
+
 
 let getWeather = (data)=>{
     console.log(data.location.name);
@@ -40,7 +47,11 @@ let getTime = ()=>{
     setInterval(() => {
         let currentDate = new  Date();
         hrs.innerHTML =currentDate.getHours();
-        min.innerHTML =currentDate.getMinutes();  
+        if(currentDate.getMinutes()<10){
+        min.innerHTML ="0"+currentDate.getMinutes();  
+        }else{
+            min.innerHTML =currentDate.getMinutes();  
+        }
     }, 1000);
     
 }
@@ -96,6 +107,7 @@ let setLocation =()=>{
 
 let getLocation=(data)=>{
     document.getElementById("search-bar").value=data.city;
+    getTime();
 }
 
 
